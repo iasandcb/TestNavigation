@@ -33,3 +33,7 @@ Add a "push" logic to a super fragment.
             .add(R.id.content_frame, new NewFragment(), "new")
             .addToBackStack(null)
             .commit();
+
+## Note
+
+A sub fragment must have an opaque background, otherwise it shows on its super fragment, and they seem overlapped.
