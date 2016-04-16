@@ -34,6 +34,13 @@ Add a "push" logic to a super fragment.
             .addToBackStack(null)
             .commit();
 
+
+## Additional Features
+
+### Circular Progress
+
+Tap FAB at right bottom, and you will see a circular progress view. Please refer to MainActivity for more details.
+
 ## Note
 
 A sub fragment must have an opaque background, otherwise it shows on its super fragment, and they seem overlapped.

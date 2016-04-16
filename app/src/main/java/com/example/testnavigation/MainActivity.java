@@ -18,7 +18,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.ProgressBar;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
@@ -30,7 +32,7 @@ public class MainActivity extends AppCompatActivity
         FragmentManager.OnBackStackChangedListener {
 
     ActionBarDrawerToggle toggle;
-
+    private ProgressBar bar;
 
     @Override
     public void onBackStackChanged() {
@@ -64,12 +66,19 @@ public class MainActivity extends AppCompatActivity
 
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 
+        bar = (ProgressBar) this.findViewById(R.id.progressBar);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                if (bar.getVisibility() == View.VISIBLE) {
+                    bar.setVisibility(View.GONE);
+                } else {
+                    bar.setVisibility(View.VISIBLE);
+                }
+                //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+
             }
         });
 
